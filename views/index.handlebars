@@ -1,0 +1,39 @@
+<img src="./assets/img/blender.jpg">
+
+<h1>Drink a smoothie!</h1>
+<h2>Smoothies to drink:</h2>
+
+<ul>
+  {{#each smoothies}}
+    {{#unless drank}}
+      {{> drinks-partial/drink-block drank=true}} 
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Smoothies that were drank</h2>
+
+<ul>
+  {{#each smoothies}}
+    {{#if drank}}
+      {{> drinks-partial/drink-block sleep=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a smoothie</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Smoothie Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="drank">Sleepy?</label><br>
+    <input type="radio" name="drank" value="1" checked> Sleepy!<br>
+    <input type="radio" name="drank" value="0"> Awake
+  </div>
+
+  <button type="submit">Add Drink</button>
+</form>

@@ -1,39 +1,29 @@
 
 var methodoverride = require ("method-override");
-var bodyparser = require("body-parser");
+var bodyParser = require("body-parser");
 var express = require("express");
 var exphbs = require("express-handlebars");
 var mysql = require("mysql");
 
 var path = require("path");
- var PORT = process.env.PORT || 5000;
+ var PORT = process.env.PORT || 3100;
 
 var app = express();
 
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// Set Handlebars as the default templating engine.
+app.use(bodyParser.json());
+
+var exphbs = require("express-handlebars");
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+var routes = require("./controllers/smoothies_controller.js");
 
-
-// Routes
-app.get("/smoothies/:smoothie_name", function(req, res) {
-  for (var i = 0; i < icecreams.length; i++) {
-    if (icecreams[i].name === req.params.name) {
-      return res.render("icecream", icecreams[i]);
-    }
-  }
-});
-
-// app.get("/smoothies", function(req, res) {
-//   res.render("ics", { ics: smoothies });
-// });
-
-// Initiate the listener.
-
+app.use(routes);
 
 app.listen(PORT, function() {
-    console.log("App listening on PORT: " + PORT);
-  });
-  
+  console.log("App now listening at localhost:" + PORT);
+});

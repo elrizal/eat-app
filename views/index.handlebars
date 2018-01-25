@@ -12,7 +12,7 @@
 <div class="col l8">
  
     <h2>Smoothies to drink:</h2>
-     <ul class="collection">
+     <ul class="collection" style="padding: 5px">
     {{#each smoothies}}
         {{#unless drank}}
         {{> drinks-partial/drink-block drank=true}} 
@@ -22,7 +22,7 @@
 
     <h2>Smoothies that were drank</h2>
 
-     <ul class="collection">
+     <ul class="collection" style="padding: 5px">
     {{#each smoothies}}
         {{#if drank}}
         {{> drinks-partial/drink-block sleep=false}}
@@ -47,7 +47,7 @@
     <input type="radio" name="drank" value="0" id="test2"> empty
   </div> --}}
 
-  <button type="submit">Add Drink</button>
+  <button class="waves-effect waves-light btn" type="submit">Add Drink</button>
 </form>
 </form>
 </div>

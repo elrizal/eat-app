@@ -27,7 +27,7 @@ $(function() {
 
     var newSmoothie = {
       name: $("#ca").val().trim(),
-      sleepy: $("[name=drank]:checked").val().trim()
+      drank: $("[name=drank]:checked").val().trim()
     };
 
     // Send the POST request.

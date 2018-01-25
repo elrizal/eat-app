@@ -1,9 +1,11 @@
-<li>
-	{{name}}
 
-	<button class="change-state" data-id="{{id}}" data-newState="{{drink}}">
-		{{#if drank}}drink{{else}}refill{{/if}}
+<link rel="stylesheet" href="./assets/css/style.css">
+
+<li>  	{{smoothie_name}} <br>
+
+	<button class="waves-effect waves-light btn change-state" data-id="{{id}}" data-newSmoothie="{{drank}}">
+		{{#if drank}}Refill{{else}}Drink{{/if}}
 	</button>
 
-	<button class="delete-smoothie" data-id="{{this.id}}">DELETE!</button>
+	<button class="waves-effect waves-light btn delete-smoothie" data-id="{{this.id}}">DELETE!</button>
 </li>

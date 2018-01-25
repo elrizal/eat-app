@@ -15,19 +15,17 @@ $(function() {
     }).then(
       function() {
         console.log("changed drink to", newState);
-        // Reload the page to get the updated list
         location.reload();
       }
     );
   });
 
-  $(".create-form").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
+  $(".waves-effect waves-light btn addsmoothie").on("submit", function(event) {
     event.preventDefault();
 
     var newSmoothie = {
       name: $("#ca").val().trim(),
-      drank: $("[name=drank]:checked").val().trim()
+      // drank: $("[name=drank]:checked").val().trim()
     };
 
     // Send the POST request.
@@ -37,7 +35,6 @@ $(function() {
     }).then(
       function() {
         console.log("created new smoothie!");
-        // Reload the page to get the updated list
         location.reload();
       }
     );
@@ -52,7 +49,6 @@ $(function() {
     }).then(
       function() {
         console.log("deleted smoothie", id);
-        // Reload the page to get the updated list
         location.reload();
       }
     );

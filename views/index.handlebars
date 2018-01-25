@@ -1,26 +1,37 @@
-<img src="./assets/img/blender.jpg">
+      <div class="container">
+    <div class="row">
+<div class="col l6"  >
+       <h1>Drink a smoothie!</h1> 
+       <p>Choose a smoothie to drink or add your own!</p>
+       </div>
+       <div class="col l6">
+<img src="./assets/img/blender.jpg" style="text-align: center; max-width: 50%;">
+</div>
+</div>
+<div class="row">
+<div class="col l8">
+ 
+    <h2>Smoothies to drink:</h2>
+     <ul class="collection">
+    {{#each smoothies}}
+        {{#unless drank}}
+        {{> drinks-partial/drink-block drank=true}} 
+        {{/unless}}
+    {{/each}}
+    </ul>
 
-<h1>Drink a smoothie!</h1>
-<h2>Smoothies to drink:</h2>
+    <h2>Smoothies that were drank</h2>
 
-<ul>
-  {{#each smoothies}}
-    {{#unless drank}}
-      {{> drinks-partial/drink-block drank=true}} 
-    {{/unless}}
-  {{/each}}
-</ul>
+     <ul class="collection">
+    {{#each smoothies}}
+        {{#if drank}}
+        {{> drinks-partial/drink-block sleep=false}}
+        {{/if}}
+    {{/each}}
+    </ul>
+</div>
 
-<h2>Smoothies that were drank</h2>
-
-<ul>
-  {{#each smoothies}}
-    {{#if drank}}
-      {{> drinks-partial/drink-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
+<div class="col l4">
 <h2>Add a smoothie</h2>
 <form class="create-form">
 
@@ -30,10 +41,16 @@
   </div>
 
   <div class="form-group">
-    <label for="drank">Sleepy?</label><br>
-    <input type="radio" name="drank" value="1" checked> Sleepy!<br>
-    <input type="radio" name="drank" value="0"> Awake
+      <form action="#">
+    <label for="drank">Status:</label><br>
+    <input type="radio" name="drank" value="1" id="test1" checked> full!<br>
+    <input type="radio" name="drank" value="0" id="test2"> empty
   </div>
 
   <button type="submit">Add Drink</button>
 </form>
+</form>
+</div>
+      </div>
+
+      

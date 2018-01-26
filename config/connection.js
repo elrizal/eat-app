@@ -2,15 +2,17 @@
 var express = require("express");
 var mysql = require("mysql");
 var app = express();
-
-var connection = mysql.createConnection({
+if (process.env.JAWSDB_URL){
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
   port: 3306,
   host: "localhost",
   user: "root",
   password: "",
   database: "smoothies_db"
-});
-
+  });
+};
 // Make connection.
 connection.connect(function(err) {
   if (err) {
